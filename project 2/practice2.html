@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="PHPpractice2Post.php" method="post">
+            <input type = "text" name="username" value="Username">
+            <br>
+            <input type = "password" name="password" value="Password">
+            <br>
+            <input type = "email" name="email" value="Email">
+            <br>
+            <select name="job" id="job">
+                <option value="Education">Education</option>
+                <option value="Business">Business</option>
+                <option value="Computer Science">Computer School</option>
+            </select>
+            <br>
+            <input type="radio" id="Male" name="gender" value="Male">
+            <label for="Male">Male</label>
+            <input type="radio" id="Female" name="gender" value="Female">
+            <label for="Female">Female</label>
+            <br>
+            <input type="checkbox" id="Windows" name="system[]" value="Windows">
+            <label for="Windows">Windows</label>
+            <input type="checkbox" id="Mac" name="system[]" value="Mac">
+            <label for="Mac">Mac</label>
+            <input type="checkbox" id="Linux" name="system[]" value="Linux">
+            <label for="Linux">Linux</label>
+            <br>
+            <input type="checkbox" name="agreement" id="agreement" value="Checked" required>
+            <label for="agreement">Terms & agrrement*</label>
+            <br>
+            <input type ="submit" value="Submit">
+        </form>
+    </body>
+</html>
