@@ -1,4 +1,9 @@
 <html>
+
+    <head>
+        <link rel = "stylesheet" href = "project3css.css">
+    </head>
+
     <body>
         <form action = "project3handelform.php" method = "POST">
             <h1>Welcome to The Wayner Kerr Restaurant ONE</label>
