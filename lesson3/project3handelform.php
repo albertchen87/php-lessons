@@ -26,4 +26,7 @@ try {
   }
   $conn = null;
 
+  echo "<a href=\"project3.php\">Back!</a>";
+
   ?>
+  
