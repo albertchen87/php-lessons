@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel = "stylesheet" href = "project4css.css">
+  <ul>
+        <a href=\"project4.html\">Enter Message</a>
+        <a href=\"messages.php\">Go to message list</a>
+  </ul>
 </head>
 <body>
 
@@ -34,10 +38,6 @@
       echo "Connection failed: " . $e->getMessage() . "<br>";
     }
     $conn = null;
-  
-    echo "<br>"."<a href=\"project4.html\">Back to main page</a>"."<br>";
-
-    echo "<a href=\"messages.php\">Go to message list</a>";
   
     ?>
 </body>
