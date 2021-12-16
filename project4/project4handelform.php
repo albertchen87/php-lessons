@@ -7,8 +7,8 @@
   <title>Document</title>
   <link rel = "stylesheet" href = "project4css.css">
   <ul>
-        <a href=\"project4.html\">Enter Message</a>
-        <a href=\"messages.php\">Go to message list</a>
+        <a href="project4.html">Enter Message</a>
+        <a href="messages.php">Go to message list</a>
   </ul>
 </head>
 <body>
