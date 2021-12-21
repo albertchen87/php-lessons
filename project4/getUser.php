@@ -20,9 +20,10 @@ try {
   // set the PDO error mode to exception
   echo "Connected successfully"."<br>";
 
-  $sql = "SELECT * FROM `message_board` WHERE username = \"?\"";
+  $sql = "SELECT * FROM `message_board` WHERE username LIKE ?";
+  $name = "%$name%";
   $stmt = $conn->prepare($sql);
-  $stmt->bindParam(1, $username);
+  $stmt->bindParam(1, $name);
   $stmt->execute();
   echo "executed sudcessfully";
 
