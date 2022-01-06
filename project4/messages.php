@@ -29,7 +29,7 @@ try {
 
     while (($row = $result->fetch(PDO::FETCH_ASSOC)) !== false) {
         $ID = $row['ID'];
-        echo "<div>".$ID."<label>".$row['username'].": \t".$row['message']."</label>"."<a href ='delete.php?ID=$ID'>Delete</a>"."</div>";
+        echo "<div>".$ID."<label>".$row['username'].": \t".$row['message']."</label>"."<a href ='delete.php?ID=$ID'>Delete</a>"."<a href = 'edit.php?ID=$ID'>Edit</a>"."</div>";
     }
 
   } catch(PDOException $e) {
