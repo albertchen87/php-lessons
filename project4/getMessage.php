@@ -8,6 +8,7 @@
     <link rel = "stylesheet" href = "project4css.css">
     <ul>
         <a href="project4.html">Enter Message</a>
+        <a href="messages.php">Message List</a>
     </ul>
 </head>
 <body>
@@ -28,7 +29,8 @@ try {
   echo "executed sudcessfully";
 
   while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
-    echo "<div>"."<label>".$row['username'].": \t".$row['message']."</label>"."</div>";
+    $ID = $row['ID'];
+    echo "<div>"."<label>".$row['username'].": \t".$row['message']."</label>"."<a href ='delete.php?ID=$ID'>Delete</a>"."<a href = 'edit.php?ID=$ID'>Edit</a>"."</div>";
 }
 
 } catch(PDOException $e) {

@@ -14,17 +14,17 @@
 <body>
 <?php
 
-$name = $_POST['name'];
+$ID = $_GET['ID'];
 
 try {
   $conn = new PDO("mysql:host=localhost;dbname=message_board_app","root", "");
   // set the PDO error mode to exception
   echo "Connected successfully"."<br>";
 
-  $sql = "SELECT * FROM `message_board` WHERE username LIKE ?";
-  $name = "%$name%";
+  $sql = "SELECT * FROM `message_board` WHERE ID like ?";
+  $ID = "%$ID%";
   $stmt = $conn->prepare($sql);
-  $stmt->bindParam(1, $name);
+  $stmt->bindParam(1, $ID);
   $stmt->execute();
   echo "executed sudcessfully";
 
