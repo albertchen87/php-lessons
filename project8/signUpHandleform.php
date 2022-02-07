@@ -21,7 +21,7 @@ $Password = password_hash($Password, PASSWORD_BCRYPT);
 try {
     $conn = new PDO("mysql:host=localhost;dbname=user", 'root', '');
     echo "Connected successfully<br>";
-    $sql = "INSERT INTO `user`(username, email, password) VALUES ('$Username', '$Email', '$Password')";
+    $sql = "INSERT INTO `user`(`user`, `password`, `email`) VALUES ('$Username', '$Password', '$Email')";
     $conn->query($sql);
     echo "Inserted successfully"."<br>";
 
