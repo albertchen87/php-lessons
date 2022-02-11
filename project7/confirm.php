@@ -9,14 +9,11 @@
 </head>
 <body>
     <?php session_start(); ?>
-    <form action = "changeHandleform.php" method = "post">
+    <form action = "confirmHandleform.php" method = "post">
         <label>Username</label>
         <?php echo "<input type = 'text' name = 'Username' value = " . $_SESSION['Username'] . ">" ?>
         <br>
         <label>Password</label>
-        <?php echo "<input type = 'password' name = 'Password' value = " . $_SESSION['Password'] . ">" ?>
-        <br>
-        <label>Confirm Password</label>
         <input type = "password" name = 'confirmPassword'>
         <br>
         <input type = "submit">
