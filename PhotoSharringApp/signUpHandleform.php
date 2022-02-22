@@ -9,7 +9,7 @@
     <ul>
         <li><a href = "WelcomePage.html">Home</a></li>
         <li><a href = "login.html">login</a></li>
-        <li><a href = "signUp.html">Profile</a></li>
+        <li><a href = "signUp.html">signUp</a></li>
     <ul>
 </head>
 <body>
