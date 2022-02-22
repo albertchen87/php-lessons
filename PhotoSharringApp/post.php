@@ -14,7 +14,7 @@
     <ul>
 </head>
 <body>
-<form action="fileUpload.php" method="post" enctype="multipart/form-data">
+<form action="picUpload.php" method="post" enctype="multipart/form-data">
     <label>Discription</label>
     <br>
     <input type = "textarea" name = "description">
