@@ -23,11 +23,14 @@ $Password = password_hash($Password, PASSWORD_BCRYPT);
 
 // CONNECT TO DATABASE
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=photosharigapp", 'root', '');
-    echo "Connected successfully<br>";
+    if ($conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp", 'root', '')) {
+        echo "Connected success<br>";
+    } else {
+        echo "error connecting";
+    };
 
     $sql = 'SELECT * FROM `users` WHERE `Email` = ?';
-    echo $Email;    
+    echo $Email . "<br>";    
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(1, $Email);
     $stmt->execute();
@@ -36,9 +39,9 @@ try {
     if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         echo "<h1>Email already used</h1>";
         echo "<a href = 'signUp.html'>Sign Up</a>";
-    }
+    }   
     else {
-        $sql = "INSERT INTO `users`(`Name`, `Password`, `Email`) VALUES ('$Username', '$Password', '$Email')";
+        $sql = "INSERT INTO `users`(`Username`, `Password`, `Email`) VALUES ('$Username', '$Password', '$Email')";
         $conn->query($sql);
         echo "Inserted successfully"."<br>";
         echo "<a href = 'login.html'>Login</a>";

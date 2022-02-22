@@ -7,7 +7,9 @@
     <title>Document</title>
     <link rel = "stylesheet" href = "css.css">
     <ul>
-        <li><a href = "WelcomePage.html">Home</a></li>
+        <li><a href = "AppHome.php">Home</a></li>
+        <li><a href = "post.php">Post</a></li>
+        <li><a href = "profile.php">Profile</a></li>
     <ul>
 </head>
 <body>
@@ -17,10 +19,10 @@
     $Password = addslashes($_POST['Password']);
     echo $Email . '<br>';
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=photosharigapp","root", "");
+        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         // set the PDO error mode to exception      
         $sql = 'SELECT * FROM `users` WHERE `Email` = ?';
-        echo $Email;    
+        echo $Email . "<br>";    
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $Email);
         $stmt->execute();
@@ -31,7 +33,7 @@
             if(password_verify($Password, $testPassword)){
                 echo "Welcome, user" .  "<br>";
                 session_start();
-                $_SESSION['Username'] = $row['Name'];
+                $_SESSION['Username'] = $row['Username'];
                 $_SESSION['Password'] = $_POST['Password'];
                 $_SESSION['Email'] = $row['Email'];
                 echo "<a href = 'profile.php'>Profile</a>";
