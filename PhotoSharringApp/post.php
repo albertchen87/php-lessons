@@ -14,6 +14,13 @@
     <ul>
 </head>
 <body>
-    
+<form action="fileUpload.php" method="post" enctype="multipart/form-data">
+    <label>Discription</label>
+    <br>
+    <input type = "textarea" name = "description">
+    <br>
+    <input type="file" name="uploadedFile" accept = "*image/*">
+    <input type="submit">
+</form>
 </body>
 </html>
