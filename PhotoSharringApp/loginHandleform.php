@@ -7,14 +7,10 @@
     <title>Document</title>
     <link rel = "stylesheet" href = "css.css">
     <ul>
-<<<<<<< Updated upstream
         <li><a href = "AppHome.php">Home</a></li>
         <li><a href = "post.php">Post</a></li>
-=======
-        <li><a href = "home.php">Home</a></li>
-        <li><a href = "logout.php">Logout</a></li>
->>>>>>> Stashed changes
         <li><a href = "profile.php">Profile</a></li>
+        <li><a href = "logout.php">Logout</a></li>
     <ul>
 </head>
 <body>
@@ -22,12 +18,11 @@
 
     $Email = addslashes($_POST['Email']);
     $Password = addslashes($_POST['Password']);
-    echo $Email . '<br>';
+
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         // set the PDO error mode to exception      
-        $sql = 'SELECT * FROM `users` WHERE `Email` = ?';
-        echo $Email . "<br>";    
+        $sql = 'SELECT * FROM `users` WHERE `Email` = ?'; 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $Email);
         $stmt->execute();

@@ -7,15 +7,10 @@
     <title>Document</title>
     <link rel = "stylesheet" href = "css.css">
     <ul>
-<<<<<<< Updated upstream
         <li><a href = "AppHome.php">Home</a></li>
         <li><a href = "logout.php">Logout</a></li>
         <li><a href = "profile.php">Profile</a></li>
         <li><a href = "post.php">post</a></li>
-=======
-        <li><a href = "home.php">Home</a></li>
-        <li><a href = "logout.php">Logout</a></li>
->>>>>>> Stashed changes
     <ul>
 </head>
 <body>
