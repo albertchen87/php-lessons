@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel = "stylesheet" href = "css.css">
+    <ul>
+        <li><a href = "WelcomePage.html">Home</a></li>
+    <ul>
 </head>
 <body>
     <?php
@@ -32,6 +35,7 @@
                 $_SESSION['Password'] = $_POST['Password'];
                 $_SESSION['Email'] = $row['Email'];
                 echo "<a href = 'profile.php'>Profile</a>";
+                echo "<a href = 'post.php'>Post</a>";
             }
             else {
                 echo "<h1>Email or password is incorrect2</h1>";
