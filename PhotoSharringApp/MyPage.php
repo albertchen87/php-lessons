@@ -27,13 +27,12 @@
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $UserID);
         $stmt->execute();
-        echo "executed successfully" . "<br>";
  
         while(($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
             $pic = $row['pic'];
             $description = $row['description'];
             $time = $row['time'];
-            echo '<img src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
+            echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
             echo $description . '<br>';
             echo $time . '<br>' . '<br>' . '<br>';
         }

@@ -12,3 +12,14 @@
 input, textarea {
     border: 2px solid white;
 }
+
+li {
+    text-align: center;
+    display: inline;
+    margin: 3px;
+}
+
+ul {
+    float: left;;
+    width: 100%;
+}

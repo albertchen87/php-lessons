@@ -18,7 +18,6 @@
 <body>
     <?php
     session_start();
-    var_dump($_SESSION);
     echo $_SESSION['Username'] . "<br>";
     echo $_SESSION['Password'] . "<br>";
     echo $_SESSION['Email'] . "<br>";
