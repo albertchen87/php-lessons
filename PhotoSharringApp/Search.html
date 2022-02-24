@@ -16,15 +16,10 @@
     <ul>
 </head>
 <body>
-    <?php
-    session_start();
-    var_dump($_SESSION);
-    echo $_SESSION['Username'] . "<br>";
-    echo $_SESSION['Password'] . "<br>";
-    echo $_SESSION['Email'] . "<br>";
-    ?>
-    <form action = "logout.php">
-        <input type = "submit" value = "logout">
+    <form action = "SearchHandleForm.php" method = "post">
+        <label>Username</label>
+        <input type = "text" name = "Username">
+        <input type = "submit">
     </form>
 </body>
 </html>

@@ -11,6 +11,8 @@
         <li><a href = "logout.php">Logout</a></li>
         <li><a href = "profile.php">Profile</a></li>
         <li><a href = "post.php">post</a></li>
+        <li><a href = "MyPage.php">My Page</a></li>
+        <li><a href = "Search.html">Search</a></li>
     <ul>
 </head>
 <body>

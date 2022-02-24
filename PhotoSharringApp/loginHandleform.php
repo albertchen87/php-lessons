@@ -11,6 +11,7 @@
         <li><a href = "post.php">Post</a></li>
         <li><a href = "profile.php">Profile</a></li>
         <li><a href = "logout.php">Logout</a></li>
+        <li><a href = "MyPage.php">My Page</a></li>
     <ul>
 </head>
 <body>
@@ -36,6 +37,9 @@
                 $_SESSION['Username'] = $row['Username'];
                 $_SESSION['Password'] = $_POST['Password'];
                 $_SESSION['Email'] = $row['Email'];
+                $_SESSION['UserID'] = $row['UserID'];
+                $_SESSION['Description'] = $row['Description'];
+                $_SESSION['birthday'] = $row['birthday'];
                 echo "<a href = 'profile.php'>Profile</a>";
                 echo "<a href = 'post.php'>Post</a>";
             }
