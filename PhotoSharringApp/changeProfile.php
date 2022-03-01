@@ -17,15 +17,17 @@
 </head>
 <body>
     <?php
-    session_start();
-    echo $_SESSION['Username'] . "<br>";
-    echo $_SESSION['Password'] . "<br>";
-    echo $_SESSION['Email'] . "<br>";
-    echo $_SESSION['UserID'] . "<br>";
-    echo $_SESSION['Description'] . "<br>";
-    echo $_SESSION['birthday'] . "<br>";
-    echo $_SESSION['porfilePic'] . "<br>";
+    session_start();?>
+
+    <form action = 'uploadProfileChange.php' method = 'post'>
+    <?php    
+    echo    "<label>Username</label><input type = 'text' value = " . $_SESSION['Username'] . ">" . "<br>";
+    echo    "<label>Password</label><input type = 'text' value = " . $_SESSION['Password'] . ">" . "<br>";
+    echo    "<label>Birthday</label><input type = 'text' value = " . $_SESSION['birthday'] . ">" . "<br>";
+    echo    "<label>Description</label><input type = 'text' value = " . $_SESSION['Description'] . ">" . "<br>";
     ?>
+    <label
+    <input type="file" name="uploadedFile" accept = "*image/*">
 
     <form action = "changeProfile.php">
         <input type = "submit" value = "Change Profile">

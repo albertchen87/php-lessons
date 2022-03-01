@@ -40,6 +40,7 @@
                 $_SESSION['UserID'] = $row['UserID'];
                 $_SESSION['Description'] = $row['Description'];
                 $_SESSION['birthday'] = $row['birthday'];
+                $_SESSION['porfilePic'] = $row['profilePic'];
                 echo "<a href = 'profile.php'>Profile</a>";
                 echo "<a href = 'post.php'>Post</a>";
             }
