@@ -11,34 +11,51 @@
 
     <?php
 
-    var_dump($_POST);
+    echo "<br>";
     $Username = addslashes($_POST['Username']);
     $Password = addslashes($_POST['Password']);
     $Password = password_hash($Password, PASSWORD_BCRYPT);
     $birthday = $_POST['birthday'];
     $Description = addslashes($_POST['Description']);
-    $image = $_FILES['pic']['tmp_name'];
-    $imgContent = addslashes(file_get_contents($image));
+    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+    $UserID = $_SESSION['UserID'];
+    if ($_FILES['pic']['name'] == ""){
+        
+        try {
+            
+            // set the PDO error mode to exception      
+            $sql = "SELECT * FROM users WHERE UserID = '$UserID'"; 
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+     
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $imgContent = addslashes($row['profilePic']);
+          
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage() . "<br>";
+        }
+    }
+    else {
+        $image = $_FILES['pic']['tmp_name'];
+        $imgContent = addslashes(file_get_contents($image));
+    }
+    
     $_SESSION['Username'] = $Username;
     $_SESSION['Password'] = $_POST['Password'];
     $_SESSION['birthday'] = $birthday;
     $_SESSION['Description'] = $Description;
-    $_SESSION['profilePic'] = $imgContent;
 
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        
         // set the PDO error mode to exception      
-        $sql = "UPDATE `users` SET `Username`='$Username',`Password`='$Password',
-        `Description`='$Description',`birthday`='$birthday',`profilePic`='$imgContent' WHERE `UserID` = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(1, $_SESSION['UserID']);
-        $stmt->execute();
+        $sql = "UPDATE users SET Username='$Username',`Password`='$Password',`Description`='$Description',`birthday`='$birthday',`profilePic`='$imgContent' WHERE UserID = '$UserID'";
+        $conn->exec($sql);
         echo "executed successfully" . "<br>";
       
-      } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage() . "<br>";
-      }
-      $conn = null;
+    } catch(PDOException $e) {
+        echo "Connection failed " . $e->getMessage() . "<br>";
+    }
+    $conn = null;
 
     ?>
     

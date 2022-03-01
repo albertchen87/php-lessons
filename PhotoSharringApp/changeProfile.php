@@ -15,7 +15,7 @@
         echo    "<label>Password</label><input type = 'text' name = 'Password' value = " . $_SESSION['Password'] . ">" . "<br>";
         echo    "<label>Birthday</label><input type = 'date' name = 'birthday' value = " . $_SESSION['birthday'] . ">" . "<br>";
         echo    "<label>Description</label><input type = 'text' name = 'Description' value = " . $_SESSION['Description'] . ">" . "<br>";
-        echo    "<label>New Profile Picture</label><input type='file' name = 'pic' value = " . $_SESSION['profilePic'] . "accept = '*image/*' >";
+        echo    "<label>New Profile Picture</label><input type='file' name = 'pic' accept = '*image/*' >";
         ?>        
         <br>
         <input type = "submit" value = "Change Profile">

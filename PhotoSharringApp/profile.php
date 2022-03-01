@@ -15,6 +15,7 @@
     echo $_SESSION['UserID'] . "<br>";
     echo $_SESSION['Description'] . "<br>";
     echo $_SESSION['birthday'] . "<br>";
+    echo $_SESSION['profilePic']. "<br>";
     $UserID = $_SESSION['UserID'];
         try {
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
