@@ -26,7 +26,8 @@ try {
         $User = $row['Username'];
         $description = $row['Description'];
         $UserID = $row['UserID'];
-        echo "<a href = 'individual.php?ID=$UserID'>" . $UserID . "</a>" . "\t" . "<label>" . $User . "</label>";
+        $pic = $row['profilePic'];
+        echo "<a href = 'individual.php?ID=$UserID'>" . $UserID . "</a>" . '<img style="width: 50px; height: auto" src="data:image/jpg;base64,' . base64_encode($pic) .' "/>' . "\t" . "<label>" . $User . "</label>";
         echo '<br>' . '<br>' . '<br>';
     }
   

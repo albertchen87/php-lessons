@@ -14,6 +14,19 @@
         try {
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
             // set the PDO error mode to exception      
+            $sql = 'SELECT * FROM `users` WHERE `UserID` = ?'; 
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(1, $UserID);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo $row['Username'] . "<br>";
+            echo $row['Email'] . "<br>";
+            echo $row['UserID'] . "<br>";
+            echo $row['Description'] . "<br>";
+            $pic = $row['profilePic'];
+            echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
+
+
             $sql = 'SELECT * FROM `posts` WHERE `UserID` = ?'; 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(1, $UserID);
