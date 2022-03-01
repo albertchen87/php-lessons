@@ -38,12 +38,12 @@
             }
             else {
                 echo "<h1>Email or password is incorrect2</h1>";
-                echo "<a href = 'login.html'>Login</a>";
+                echo "<a href = 'login.php'>Login</a>";
             }
         }
         else {
             echo "<h1>Email or password is incorrect1 could not find email</h1>";
-            echo "<a href = 'login.html'>Login</a>";
+            echo "<a href = 'login.php'>Login</a>";
         }
       
       } catch(PDOException $e) {

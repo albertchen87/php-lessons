@@ -15,7 +15,24 @@
     echo $_SESSION['UserID'] . "<br>";
     echo $_SESSION['Description'] . "<br>";
     echo $_SESSION['birthday'] . "<br>";
-    echo $_SESSION['profilePic'] . "<br>";
+    $UserID = $_SESSION['UserID'];
+        try {
+            $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+            // set the PDO error mode to exception      
+            $sql = 'SELECT * FROM `users` WHERE `UserID` = ?'; 
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(1, $UserID);
+            $stmt->execute();
+     
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $pic = $row['profilePic'];
+            echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
+
+          
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage() . "<br>";
+        }
+        $conn = null;
     ?>
 
     <form action = "changeProfile.php">

@@ -19,6 +19,11 @@
     $Description = addslashes($_POST['Description']);
     $image = $_FILES['pic']['tmp_name'];
     $imgContent = addslashes(file_get_contents($image));
+    $_SESSION['Username'] = $Username;
+    $_SESSION['Password'] = $_POST['Password'];
+    $_SESSION['birthday'] = $birthday;
+    $_SESSION['Description'] = $Description;
+    $_SESSION['profilePic'] = $imgContent;
 
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
