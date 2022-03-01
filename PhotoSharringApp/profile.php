@@ -15,7 +15,7 @@
     echo $_SESSION['UserID'] . "<br>";
     echo $_SESSION['Description'] . "<br>";
     echo $_SESSION['birthday'] . "<br>";
-    echo $_SESSION['porfilePic'] . "<br>";
+    echo $_SESSION['profilePic'] . "<br>";
     ?>
 
     <form action = "changeProfile.php">
@@ -25,8 +25,5 @@
     <br>
     <br>
 
-    <form action = "logout.php">
-        <input type = "submit" value = "logout">
-    </form>
 </body>
 </html>

@@ -32,7 +32,7 @@
                 $_SESSION['UserID'] = $row['UserID'];
                 $_SESSION['Description'] = $row['Description'];
                 $_SESSION['birthday'] = $row['birthday'];
-                $_SESSION['porfilePic'] = $row['profilePic'];
+                $_SESSION['profilePic'] = $row['profilePic'];
                 echo "<a href = 'AppHome.php'>Home</a>";
                 echo "<a href = 'profile.php'>profile</a>";
             }
