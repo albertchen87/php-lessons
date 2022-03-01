@@ -6,13 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel = "stylesheet" href = "css.css">
-    <ul>
-        <li><a href = "AppHome.php">Home</a></li>
-        <li><a href = "post.php">Post</a></li>
-        <li><a href = "profile.php">Profile</a></li>
-        <li><a href = "logout.php">Logout</a></li>
-        <li><a href = "MyPage.php">My Page</a></li>
-    <ul>
 </head>
 <body>
     <?php
@@ -28,12 +21,11 @@
         $stmt->bindParam(1, $Email);
         $stmt->execute();
         echo "executed successfully" . "<br>";
- 
+        session_start();
         if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $testPassword = $row['Password'];
             if(password_verify($Password, $testPassword)){
                 echo "Welcome, user" .  "<br>";
-                session_start();
                 $_SESSION['Username'] = $row['Username'];
                 $_SESSION['Password'] = $_POST['Password'];
                 $_SESSION['Email'] = $row['Email'];
@@ -41,8 +33,8 @@
                 $_SESSION['Description'] = $row['Description'];
                 $_SESSION['birthday'] = $row['birthday'];
                 $_SESSION['porfilePic'] = $row['profilePic'];
-                echo "<a href = 'profile.php'>Profile</a>";
-                echo "<a href = 'post.php'>Post</a>";
+                echo "<a href = 'AppHome.php'>Home</a>";
+                echo "<a href = 'profile.php'>profile</a>";
             }
             else {
                 echo "<h1>Email or password is incorrect2</h1>";
