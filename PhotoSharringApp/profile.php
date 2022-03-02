@@ -39,6 +39,10 @@
         <input type = "submit" value = "Change Profile">
     </form>
 
+    <a href = 'Mfollowers.php'>Manage followers</a>
+    <a href = 'Mfollowed.php'>Manage followed</a>
+
+
     <br>
     <br>
 

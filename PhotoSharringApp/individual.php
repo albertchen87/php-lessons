@@ -26,7 +26,7 @@
             $pic = $row['profilePic'];
             echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
             if ($UserID != $_SESSION['UserID']) {
-                $sql = 'SELECT * FROM  `followers` where `UserID` = ? and `followedID` = ?';
+                $sql = 'SELECT * FROM  `followers` where `followerID` = ? and `followedID` = ?';
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(1, $_SESSION['UserID']);
                 $stmt->bindParam(2, $UserID);
@@ -38,10 +38,7 @@
                     echo "<a href = 'unfollow.php?ID=$UserID'>unfollow</a>";
                 }
             }
-            else {
-                echo "<a href = 'Mfollowers.php'>Manage followers</a>";
-                echo "<a href = 'Mfollowed.php'>Manage followed</a>";
-            }
+
             
 
 

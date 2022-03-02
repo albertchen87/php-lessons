@@ -8,7 +8,7 @@
     <?php require('nav.php'); ?>
     <?php 
     $fUserID = $_GET['ID'];
-    echo '<meta http-equiv="refresh" content="1; url = individual.php?ID=' . $fUserID . '.php">';
+    echo '<meta http-equiv="refresh" content="1; url = Mfollowed.php">';
     ?>
 
 </head>
@@ -17,8 +17,12 @@
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $UserID = $_SESSION['UserID'];
-        $sql = "INSERT INTO `followers`(`followerID`, `followedID`) VALUES ('$UserID','$fUserID')";
-        $conn->query($sql);
+        $fUserID = $_GET['ID'];
+        $sql = "DELETE FROM `followers` WHERE `followerID` = ? and `followedID` = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1, $UserID);
+        $stmt->bindParam(2, $fUserID);
+        $stmt->execute();
     }
     catch (PDOException $e) {
         echo $e->getMessage();

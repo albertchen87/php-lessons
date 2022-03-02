@@ -17,7 +17,7 @@
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $UserID = $_SESSION['UserID'];
-        $sql = "DELETE FROM `followers` WHERE `UserID` = ? and `followedID` = ?";
+        $sql = "DELETE FROM `followers` WHERE `followerID` = ? and `followedID` = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $UserID);
         $stmt->bindParam(2, $fUserID);
