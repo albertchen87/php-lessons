@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 style = "width: 100%;">Hi, this is a photo sharring app, please login to use all functions!</h1>
-    <a href = "logIn.html">login</a>
-    <a href = "signUp.html">Sign Up</a>
+    <a href = "logIn.php">login</a>
+    <a href = "signUp.php">Sign Up</a>
 </body>
 </html>

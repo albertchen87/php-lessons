@@ -13,14 +13,18 @@
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
             // set the PDO error mode to exception      
 
-            $sql = 'SELECT * FROM `posts` ORDER by `PostID` DESC'; 
+            $sql = 'SELECT * FROM `posts` INNER Join `followers` on posts.UserID = followers.followedID 
+            Inner Join `users` on posts.UserID = users.UserID 
+            ORDER by `PostID` DESC'; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
      
             while(($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
+                $Username = $row['Username'];
                 $pic = $row['pic'];
                 $description = $row['description'];
                 $time = $row['time'];
+                echo $Username . '<br>';
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
                 echo $time . '<br>' . '<br>' . '<br>';

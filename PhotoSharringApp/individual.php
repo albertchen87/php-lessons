@@ -25,6 +25,24 @@
             echo $row['Description'] . "<br>";
             $pic = $row['profilePic'];
             echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
+            if ($UserID != $_SESSION['UserID']) {
+                $sql = 'SELECT * FROM  `followers` where `UserID` = ? and `followedID` = ?';
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(1, $_SESSION['UserID']);
+                $stmt->bindParam(2, $UserID);
+                $stmt->execute();
+                if (($row = $stmt->fetch(PDO::FETCH_ASSOC)) == false) {
+                    echo "<a href = 'follow.php?ID=$UserID'>follow</a>";
+                }
+                else {
+                    echo "<a href = 'unfollow.php?ID=$UserID'>unfollow</a>";
+                }
+            }
+            else {
+                echo "<a href = 'Mfollowers.php'>Manage followers</a>";
+                echo "<a href = 'Mfollowed.php'>Manage followed</a>";
+            }
+            
 
 
             $sql = 'SELECT * FROM `posts` WHERE `UserID` = ?'; 
