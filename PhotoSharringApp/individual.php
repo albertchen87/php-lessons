@@ -32,10 +32,10 @@
                 $stmt->bindParam(2, $UserID);
                 $stmt->execute();
                 if (($row = $stmt->fetch(PDO::FETCH_ASSOC)) == false) {
-                    echo "<a href = 'follow.php?ID=$UserID'>follow</a>";
+                    echo "<a href = 'follow.php?ID=$UserID'>follow</a><br><br><br><br><br>";
                 }
                 else {
-                    echo "<a href = 'unfollow.php?ID=$UserID'>unfollow</a>";
+                    echo "<a href = 'unfollow.php?ID=$UserID'>unfollow</a><br><br><br><br><br>";
                 }
             }
 

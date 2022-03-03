@@ -12,11 +12,9 @@
         try {
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
             // set the PDO error mode to exception      
+            $UserID = $_SESSION['UserID'];
 
-            $sql = 'SELECT * FROM `posts` INNER Join `followers` on posts.UserID = followers.followedID 
-            Inner Join `users` on posts.UserID = users.UserID 
-            where followers.followerID = $_SESSION["UserID"] 
-            ORDER by `PostID` DESC'; 
+            $sql = "SELECT * FROM `posts` INNER Join `followers` on posts.UserID = followers.followedID Inner Join `users` on posts.UserID = users.UserID where followers.followerID = $UserID and followers.followedID = posts.UserID ORDER by `PostID` DESC"; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
      
