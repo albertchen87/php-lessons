@@ -15,6 +15,7 @@
 
             $sql = 'SELECT * FROM `posts` INNER Join `followers` on posts.UserID = followers.followedID 
             Inner Join `users` on posts.UserID = users.UserID 
+            where followers.followerID = $_SESSION["UserID"] 
             ORDER by `PostID` DESC'; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
