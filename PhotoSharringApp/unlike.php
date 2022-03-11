@@ -7,7 +7,7 @@
     <title>Document</title>
     <?php require('nav.php'); ?>
     <?php 
-    $PostID = $_GET['ID'];
+    $PostID = $_GET['PostID'];
     echo '<meta http-equiv="refresh" content="0; url = AppHome.php">';
     ?>
 

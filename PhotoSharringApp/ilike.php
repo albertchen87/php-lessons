@@ -7,9 +7,9 @@
     <title>Document</title>
     <?php require('nav.php'); ?>
     <?php 
-    $PostID = $_GET['ID'];
-
-    echo '<meta http-equiv="refresh" content="0; url = AppHome.php">';
+    $PostID = $_GET['PostID'];
+    $fUserID = $_GET['ID'];
+    echo '<meta http-equiv="refresh" content="0; url = individual.php?ID=' . $fUserID . '">';
     ?>
 
 </head>

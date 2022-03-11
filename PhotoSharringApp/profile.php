@@ -41,6 +41,7 @@
 
     <a href = 'Mfollowers.php'>Manage followers</a>
     <a href = 'Mfollowed.php'>Manage followed</a>
+    <a href = 'liked.php'>liked</a>
 
 
     <br>

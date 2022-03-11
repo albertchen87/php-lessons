@@ -51,9 +51,22 @@
                 $pic = $row['pic'];
                 $description = $row['description'];
                 $time = $row['time'];
+                $PostID = $row['PostID'];                
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
-                echo $time . '<br>' . '<br>' . '<br>';
+                echo $time . '  ';
+
+                $User = $_SESSION['UserID'];
+
+                $sql = "SELECT * FROM  `likes` where `likedUserID` = '$User' and `PostID` = '$PostID'";
+                $state = $conn->prepare($sql);
+                $state->execute();
+                if (($likes = $state->fetch(PDO::FETCH_ASSOC)) == false) {
+                    echo "<a href = 'ilike.php?ID=" . $UserID . "&PostID=" . $PostID . "'>Like</a>" . '<br>' . '<br>' . '<br>';;
+                }
+                else {
+                    echo "<a href = 'iunlike.php?ID=" . $UserID . "&PostID=" . $PostID . "'>unlike</a>" . '<br>' . '<br>' . '<br>';;
+                }
             }
           
         } catch(PDOException $e) {
