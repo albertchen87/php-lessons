@@ -18,29 +18,26 @@
             $stmt = $conn->prepare($sql);
             $stmt->execute();
      
-            while(($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
-                $Username = $row['Username'];
-                $pic = $row['pic'];
-                $description = $row['description'];
-                $time = $row['time'];
+            while(($rows = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
+                $Username = $rows['Username'];
+                $pic = $rows['pic'];
+                $description = $rows['description'];
+                $time = $rows['time'];
+                $PostID = $rows['PostID'];
                 echo $Username . '<br>';
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
-                echo $time . '\t';
+                echo $time . '  ';
 
-                $PostID = $row['PostID'];
-                $sql = 'SELECT * FROM  `like` where `UserID` = ? and `PostID` = ?';
-                $stmt = $conn->prepare($sql);
-                $stmt->bindParam(1, $_SESSION['UserID']);
-                $stmt->bindParam(2, $PostID);
-                $stmt->execute();
-                if (($row = $stmt->fetch(PDO::FETCH_ASSOC)) == false) {
-                    echo "<a href = 'like.php'>Like</a>" . '<br>' . '<br>' . '<br>';;
+                $sql = "SELECT * FROM  `likes` where `likedUserID` = '$UserID' and `PostID` = '$PostID'";
+                $state = $conn->prepare($sql);
+                $state->execute();
+                if (($likes = $state->fetch(PDO::FETCH_ASSOC)) == false) {
+                    echo "<a href = 'like.php?ID=" . $PostID . "'>Like</a>" . '<br>' . '<br>' . '<br>';;
                 }
                 else {
-                    echo "<a href = 'unlike.php'>Like</a>" . '<br>' . '<br>' . '<br>';;
+                    echo "<a href = 'unlike.php?ID=" . $PostID . "'>unlike</a>" . '<br>' . '<br>' . '<br>';;
                 }
-                "<a href = 'like.php'>Like</a>" . '<br>' . '<br>' . '<br>';
             }
           
         } catch(PDOException $e) {

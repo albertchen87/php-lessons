@@ -8,7 +8,7 @@
     <?php require('nav.php'); ?>
     <?php 
     $fUserID = $_GET['ID'];
-    echo '<meta http-equiv="refresh" content="1; url = individual.php?ID=' . $fUserID . '.php">';
+    echo '<meta http-equiv="refresh" content="1; url = individual.php?ID=' . $fUserID . '">';
     ?>
 
 </head>
