@@ -26,7 +26,21 @@
                 echo $Username . '<br>';
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
-                echo $time . '<br>' . '<br>' . '<br>';
+                echo $time . '\t';
+
+                $PostID = $row['PostID'];
+                $sql = 'SELECT * FROM  `like` where `UserID` = ? and `PostID` = ?';
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(1, $_SESSION['UserID']);
+                $stmt->bindParam(2, $PostID);
+                $stmt->execute();
+                if (($row = $stmt->fetch(PDO::FETCH_ASSOC)) == false) {
+                    echo "<a href = 'like.php'>Like</a>" . '<br>' . '<br>' . '<br>';;
+                }
+                else {
+                    echo "<a href = 'unlike.php'>Like</a>" . '<br>' . '<br>' . '<br>';;
+                }
+                "<a href = 'like.php'>Like</a>" . '<br>' . '<br>' . '<br>';
             }
           
         } catch(PDOException $e) {
