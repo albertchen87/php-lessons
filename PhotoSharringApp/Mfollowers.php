@@ -25,7 +25,7 @@ try {
   while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
     $ID = $row['UserID'];
     $pic = $row['profilePic'];
-    echo "<label>".$row['Username']."</label>". '<img style="width: 100px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . "<a href ='followersRemove.php?ID=$ID'>remove</a>" . '<br>' . '<br>' . '<br>';
+    echo "<label>".$row['Username']."</label>". '<img style="width: 100px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . "<a href ='followerRemove.php?ID=$ID'>remove</a>" . '<br>' . '<br>' . '<br>';
 }
 
 } catch(PDOException $e) {
