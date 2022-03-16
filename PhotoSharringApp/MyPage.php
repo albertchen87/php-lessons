@@ -23,9 +23,26 @@
             $pic = $row['pic'];
             $description = $row['description'];
             $time = $row['time'];
+            $PostID = $row['PostID'];
             echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
             echo $description . '<br>';
-            echo $time . '<br>' . '<br>' . '<br>';
+            echo $time . '  ';
+            
+            $sql = "SELECT * FROM  `likes` where `likedUserID` = '$UserID' and `PostID` = '$PostID'";
+            $state = $conn->prepare($sql);
+            $state->execute();
+            if (($likes = $state->fetch(PDO::FETCH_ASSOC)) == false) {
+                echo "<a href = 'like.php?ID=" . $PostID . "'>Like</a>" . '<br>';
+            }
+            else {
+                echo "<a href = 'unlike.php?ID=" . $PostID . "'>unlike</a>" . '<br>';
+            }
+
+            $sql = "SELECT Count(CommentID) FROM  `comment` where `PostID` = $PostID";
+            $state = $conn->prepare($sql);
+            $state->execute();
+            $num = $state->fetch();
+            echo "<br><a href = 'Comment.php?ID=" . $PostID . "'>#" . $num[0] . " Comment</a>" . '<br>' . '<br>' . '<br>';
         }
       
     } catch(PDOException $e) {

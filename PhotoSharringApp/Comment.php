@@ -5,16 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php require('nav.php'); ?>
+    <?php 
+    require('nav.php'); 
+    $PostID = $_GET['ID'];
+    $_SESSION['PostID'] = $PostID;
+    ?>
+    
 </head>
 <body>
+
+<form action="CommentHandleform.php" method="post" enctype="multipart/form-data">
+    <label>Discription</label>
+    <br>
+    <input type = "textarea" name = "description">
+    <br>
+    <input type="file" name="uploadedFile" accept = "*image/*">
+    <input type="submit">
+</form>
+
     <?php
         try {
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
             // set the PDO error mode to exception      
             $UserID = $_SESSION['UserID'];
 
-            $sql = "SELECT * FROM `posts` INNER Join `followers` on posts.UserID = followers.followedID Inner Join `users` on posts.UserID = users.UserID where followers.followerID = $UserID and followers.followedID = posts.UserID ORDER by `PostID` DESC"; 
+            $sql = "SELECT * FROM `comment` INNER Join `users` on comment.UserID = users.UserID ORDER by `PostID` DESC"; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
      
@@ -23,27 +38,17 @@
                 $pic = $rows['pic'];
                 $description = $rows['description'];
                 $time = $rows['time'];
-                $PostID = $rows['PostID'];
+                $CommentID = $rows['CommentID'];
                 echo $Username . '<br>';
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
-                echo $time . '  ';
-
-                $sql = "SELECT * FROM  `likes` where `likedUserID` = '$UserID' and `PostID` = '$PostID'";
-                $state = $conn->prepare($sql);
-                $state->execute();
-                if (($likes = $state->fetch(PDO::FETCH_ASSOC)) == false) {
-                    echo "<a href = 'like.php?ID=" . $PostID . "'>Like</a>" . '<br>';
+                echo $time . '<br>';
+                if ($rows['UserID'] == $UserID) {
+                    echo "<a href = 'edit.php?ID=" . $rows['CommentID'] . "'>Edit</a>" . "  " . "<a href = 'delete.php?ID=" . $rows['CommentID'] . "'>Delete</a>" . '<br>' . '<br>' . '<br>';
                 }
                 else {
-                    echo "<a href = 'unlike.php?ID=" . $PostID . "'>unlike</a>" . '<br>';
+                    echo '<br>' . '<br>' . '<br>';
                 }
-
-                $sql = "SELECT Count(CommentID) FROM  `comment` where `PostID` = $PostID";
-                $state = $conn->prepare($sql);
-                $state->execute();
-                $num = $state->fetch();
-                echo "<br><a href = 'Comment.php?ID=" . $PostID . "'>#" . $num[0] . " Comment</a>" . '<br>' . '<br>' . '<br>';
             }
           
         } catch(PDOException $e) {
