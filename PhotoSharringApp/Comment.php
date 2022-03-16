@@ -29,7 +29,7 @@
             // set the PDO error mode to exception      
             $UserID = $_SESSION['UserID'];
 
-            $sql = "SELECT * FROM `comment` INNER Join `users` on comment.UserID = users.UserID ORDER by `PostID` DESC"; 
+            $sql = "SELECT * FROM `comment` INNER Join `users` on comment.UserID = users.UserID ORDER by `CommentID` DESC"; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
      

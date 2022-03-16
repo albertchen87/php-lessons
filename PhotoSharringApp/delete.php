@@ -8,7 +8,7 @@
     <?php 
     require('nav.php');
     $CommentID = $_GET['ID'];
-    $PostID = $_SESSION['CommentID'];
+    $PostID = $_SESSION['PostID'];
     echo '<meta http-equiv="refresh" content="0; url = Comment.php?ID=' . $PostID . '">';
     ?>
 
@@ -19,7 +19,7 @@
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $sql = "DELETE FROM `comment` WHERE `CommentID` = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(1, $UserID);
+        $stmt->bindParam(1, $CommentID);
         $stmt->execute();
     }
     catch (PDOException $e) {
