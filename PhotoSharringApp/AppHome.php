@@ -21,10 +21,12 @@
             while(($rows = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
                 $Username = $rows['Username'];
                 $pic = $rows['pic'];
+                $profilePic = $rows['profilePic'];
                 $description = $rows['description'];
                 $time = $rows['time'];
                 $PostID = $rows['PostID'];
-                echo $Username . '<br>';
+                echo $Username . '  ';
+                echo '<img style="width: 50px; height: auto" src="data:image/jpg;base64,'.base64_encode($profilePic).' "/>' . '<br>'; 
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
                 echo $time . '  ';
