@@ -9,6 +9,7 @@
     require('nav.php'); 
     $PostID = $_SESSION['PostID'];
     $CommentID = $_GET['ID'];
+    $_SESSION['CommentID'] = $CommentID;
     ?>
 </head>
 <body>
@@ -37,10 +38,10 @@ try {
 $conn = null;
 ?>
 
-<form action="CommentHandleform.php" method="post" enctype="multipart/form-data">
+<form action="editHandelform.php" method="post" enctype="multipart/form-data">
     <?php
     echo '<label>Discription</label><br><input type = "textarea" name = "description" value = "' . $description . '"><br>';
-    echo '<input type="file" name="uploadedFile" accept = "*image/*">';
+    echo '<input type="file" name="pic" accept = "*image/*">';
     echo '<input type="submit">'
     ?>
 </form>
