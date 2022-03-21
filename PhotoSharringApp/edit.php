@@ -15,6 +15,7 @@
 <body>
 
 <?php
+// get the information of the original comment
 try {
     $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
     // set the PDO error mode to exception      
@@ -37,7 +38,7 @@ try {
 }
 $conn = null;
 ?>
-
+<!-- form for user to update their comment -->
 <form action="editHandelform.php" method="post" enctype="multipart/form-data">
     <?php
     echo '<label>Discription</label><br><input type = "textarea" name = "description" value = "' . $description . '"><br>';

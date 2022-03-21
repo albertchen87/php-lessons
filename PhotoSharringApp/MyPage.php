@@ -32,10 +32,10 @@
             $state = $conn->prepare($sql);
             $state->execute();
             if (($likes = $state->fetch(PDO::FETCH_ASSOC)) == false) {
-                echo "<a href = 'like.php?ID=" . $PostID . "'>Like</a>" . '<br>';
+                echo "<a href = 'mlike.php?ID=" . $PostID . "'>Like</a>" . "<a href = 'whoLiked.php?ID=" . $PostID . "'>Who Liked</a>" . '<br>';
             }
             else {
-                echo "<a href = 'unlike.php?ID=" . $PostID . "'>unlike</a>" . '<br>';
+                echo "<a href = 'munlike.php?ID=" . $PostID . "'>unlike</a>" . "<a href = 'whoLiked.php?ID=" . $PostID . "'>Who Liked</a>" . '<br>';
             }
 
             $sql = "SELECT Count(CommentID) FROM  `comment` where `PostID` = $PostID";

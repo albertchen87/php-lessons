@@ -11,6 +11,7 @@
 
     <form action = 'uploadProfileChange.php' method = 'post' enctype="multipart/form-data">
         <?php    
+        // print out a form for users to update their information
         echo    "<label>Username</label><input type = 'text' name = 'Username' value = " . $_SESSION['Username'] . ">" . "<br>";
         echo    "<label>Password</label><input type = 'text' name = 'Password' value = " . $_SESSION['Password'] . ">" . "<br>";
         echo    "<label>Birthday</label><input type = 'date' name = 'birthday' value = " . $_SESSION['birthday'] . ">" . "<br>";

@@ -15,6 +15,7 @@
 </head>
 <body>
     <?php
+    // delete a comment
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $sql = "DELETE FROM `comment` WHERE `CommentID` = ?";

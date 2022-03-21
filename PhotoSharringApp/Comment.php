@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<!-- form for people to add comment -->
 <form action="CommentHandleform.php" method="post" enctype="multipart/form-data">
     <label>Discription</label>
     <br>
@@ -29,10 +30,12 @@
             // set the PDO error mode to exception      
             $UserID = $_SESSION['UserID'];
 
+            // get all comment for this post
             $sql = "SELECT * FROM `comment` INNER Join `users` on comment.UserID = users.UserID ORDER by `CommentID` DESC"; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
-     
+
+            // print all comment for this post
             while(($rows = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
                 $Username = $rows['Username'];
                 $pic = $rows['pic'];

@@ -11,26 +11,33 @@
     <?php
         try {
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
-            // set the PDO error mode to exception      
+   
             $UserID = $_SESSION['UserID'];
-
+            
+            // join three table for the information needed for a post
             $sql = "SELECT * FROM `posts` INNER Join `followers` on posts.UserID = followers.followedID Inner Join `users` on posts.UserID = users.UserID where followers.followerID = $UserID and followers.followedID = posts.UserID ORDER by `PostID` DESC"; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
-     
+
+            // print all the posts
             while(($rows = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
+
+                // organize the variables
                 $Username = $rows['Username'];
                 $pic = $rows['pic'];
                 $profilePic = $rows['profilePic'];
                 $description = $rows['description'];
                 $time = $rows['time'];
                 $PostID = $rows['PostID'];
+
+                // show the name, image, description, and time
                 echo $Username . '  ';
                 echo '<img style="width: 50px; height: auto" src="data:image/jpg;base64,'.base64_encode($profilePic).' "/>' . '<br>'; 
                 echo '<img style="width: 500px; height: auto" src="data:image/jpg;base64,'.base64_encode($pic).' "/>' . '<br>';
                 echo $description . '<br>';
                 echo $time . '  ';
 
+                // print the like or unlike button
                 $sql = "SELECT * FROM  `likes` where `likedUserID` = '$UserID' and `PostID` = '$PostID'";
                 $state = $conn->prepare($sql);
                 $state->execute();
@@ -41,6 +48,7 @@
                     echo "<a href = 'unlike.php?ID=" . $PostID . "'>unlike</a>" . '<br>';
                 }
 
+                // show the comment count and like to show all comment page
                 $sql = "SELECT Count(CommentID) FROM  `comment` where `PostID` = $PostID";
                 $state = $conn->prepare($sql);
                 $state->execute();
