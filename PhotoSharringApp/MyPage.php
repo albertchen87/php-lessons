@@ -11,6 +11,7 @@
 <?php
     $UserID = $_SESSION['UserID'];
 
+    // show post of you and can see comments and who liked the post
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         // set the PDO error mode to exception      

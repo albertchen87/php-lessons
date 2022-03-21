@@ -10,9 +10,11 @@
 <body>
     <?php
 
+    // prepare the information
     $Email = addslashes($_POST['Email']);
     $Password = addslashes($_POST['Password']);
 
+    // handel login stuff
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         // set the PDO error mode to exception      
@@ -22,8 +24,10 @@
         $stmt->execute();
         echo "executed successfully" . "<br>";
         session_start();
+        // check if account exists
         if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $testPassword = $row['Password'];
+            // set up information for the account
             if(password_verify($Password, $testPassword)){
                 echo "Welcome, user" .  "<br>";
                 $_SESSION['Username'] = $row['Username'];

@@ -8,6 +8,7 @@
     <?php require('nav.php'); ?>
 </head>
 <body>
+    <!-- form for user to input information for the post -->
 <form action="picUpload.php" method="post" enctype="multipart/form-data">
     <label>Discription</label>
     <br>

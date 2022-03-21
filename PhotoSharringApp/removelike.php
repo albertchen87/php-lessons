@@ -13,6 +13,7 @@
 
 </head>
 <body>
+    <!-- remove like for liked page -->
     <?php require("unlikePack.php"); ?>
 </body>
 </html>

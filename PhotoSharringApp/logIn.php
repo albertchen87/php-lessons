@@ -8,6 +8,7 @@
     <?php require('nav.php'); ?>
 </head>
 <body>
+    <!-- form for login information -->
     <form action = "loginHandleform.php" method="post">
         <label>Email</label>
         <input type = "text" name = "Email">

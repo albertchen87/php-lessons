@@ -14,6 +14,7 @@
 
 </head>
 <body>
+<!-- unlike button for individual page -->
 <?php require("unlikePack.php") ?>
 </body>
 </html>

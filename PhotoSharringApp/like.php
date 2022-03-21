@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<!-- like button for home page -->
     <?php
     require("likePack.php");
     ?>

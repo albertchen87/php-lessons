@@ -12,6 +12,7 @@
 
 </head>
 <body>
+    <!-- unlike button for mypage -->
     <?php
     require("unlikePack.php");
     ?>

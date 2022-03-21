@@ -9,6 +9,7 @@
     <?php require('nav.php'); ?>
 </head>
 <body>
+    <!-- the sign up form -->
     <form action = signUpHandleform.php method = "post">
         <label>Username</label>
         <input type = "text" name = "Username">

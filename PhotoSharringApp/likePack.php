@@ -1,3 +1,4 @@
+<!-- submitting likes into database -->
 <?php
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");

@@ -14,6 +14,7 @@
 </head>
 <body>
     <?php
+    // remove poeple you follow
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $UserID = $_SESSION['UserID'];

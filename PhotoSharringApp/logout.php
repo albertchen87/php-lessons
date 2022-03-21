@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+    // clear the information of login
     session_start();
     session_destroy();
     echo "you have been logout";

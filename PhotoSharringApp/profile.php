@@ -8,6 +8,7 @@
     <?php require('nav.php'); ?>
 </head>
 <body>
+    <!-- show the profile for the use and link to function of manage followers and followed and the posts you like -->
     <?php
     echo $_SESSION['Username'] . "<br>";
     echo $_SESSION['Password'] . "<br>";

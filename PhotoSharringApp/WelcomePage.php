@@ -8,6 +8,7 @@
     <?php require('nav.php'); ?>
 </head>
 <body>
+    <!-- the first page a user will see -->
     <h1 style = "width: 100%;">Hi, this is a photo sharring app, please login to use all functions!</h1>
     <a href = "logIn.php">login</a>
     <a href = "signUp.php">Sign Up</a>

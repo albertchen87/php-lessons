@@ -17,7 +17,7 @@
 
     $description = addslashes($_POST['description']);
     $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
-
+    // check if the picture is updated, if not, use the old picture or else update the picture
     if ($_FILES['pic']['name'] == ""){
         try {
             // set the PDO error mode to exception      
@@ -36,7 +36,7 @@
         $image = $_FILES['pic']['tmp_name'];
         $imgContent = addslashes(file_get_contents($image));
     }
-
+// upload the new comment into the database
     try {
         // set the PDO error mode to exception      
         $sql = "UPDATE `comment` SET `description`='$description', `pic`='$imgContent' WHERE `CommentID` = '$CommentID'";

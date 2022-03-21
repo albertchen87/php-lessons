@@ -14,6 +14,7 @@
 </head>
 <body>
     <?php
+    // unfollow function for individual page
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $UserID = $_SESSION['UserID'];

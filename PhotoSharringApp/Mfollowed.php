@@ -12,6 +12,7 @@
 
 $UserID = $_SESSION['UserID'];
 
+// print out who you followed and can unfollow them
 try {
   $conn = new PDO("mysql:host=localhost;dbname=photosharingapp","root", "");
   // set the PDO error mode to exception

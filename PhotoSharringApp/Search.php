@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <!-- input the information for searching a user -->
     <form action = "SearchHandleForm.php" method = "post">
         <label>Username</label>
         <input type = "text" name = "Username">

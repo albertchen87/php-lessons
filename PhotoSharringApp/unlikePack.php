@@ -1,3 +1,4 @@
+<!-- the handel form for unlike button -->
 <?php
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");

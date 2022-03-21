@@ -11,6 +11,7 @@
 <body>
 <?php    
 
+// upload the post to database
     $UserID = $_SESSION['UserID'];
     $description = addslashes($_POST['description']);
 

@@ -1,3 +1,4 @@
+<!-- the navagation bar and link to css -->
 <link rel = "stylesheet" href = "css.css">
  <?php
     session_start();

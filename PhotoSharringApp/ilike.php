@@ -15,6 +15,7 @@
 </head>
 <body>
     <?php
+    // like button support for individual page
     require("likePack.php");
     ?>
 

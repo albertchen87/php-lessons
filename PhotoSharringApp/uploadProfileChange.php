@@ -12,6 +12,7 @@
 
     <?php
 
+    // the update for personal information
     echo "<br>";
     $Username = addslashes($_POST['Username']);
     $Password = addslashes($_POST['Password']);
@@ -20,6 +21,8 @@
     $Description = addslashes($_POST['Description']);
     $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
     $UserID = $_SESSION['UserID'];
+
+    // check if picture is updated
     if ($_FILES['pic']['name'] == ""){
         
         try {
@@ -49,6 +52,7 @@
     try {
         
         // set the PDO error mode to exception      
+        // update the information into the database
         $sql = "UPDATE users SET Username='$Username',`Password`='$Password',`Description`='$Description',`birthday`='$birthday',`profilePic`='$imgContent' WHERE UserID = '$UserID'";
         $conn->exec($sql);
         echo "executed successfully" . "<br>";

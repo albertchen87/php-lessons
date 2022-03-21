@@ -14,6 +14,7 @@
         try {
             $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
             // set the PDO error mode to exception      
+            // show the information of a person searched
             $sql = 'SELECT * FROM `users` WHERE `UserID` = ?'; 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(1, $UserID);
@@ -41,12 +42,13 @@
 
             
 
-
+            // get all the post of that person
             $sql = 'SELECT * FROM `posts` WHERE `UserID` = ?'; 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(1, $UserID);
             $stmt->execute();
      
+            // print all the post the person have
             while(($row = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
                 $pic = $row['pic'];
                 $description = $row['description'];
@@ -58,6 +60,7 @@
 
                 $User = $_SESSION['UserID'];
 
+                // show like or unlike button
                 $sql = "SELECT * FROM  `likes` where `likedUserID` = '$User' and `PostID` = '$PostID'";
                 $state = $conn->prepare($sql);
                 $state->execute();

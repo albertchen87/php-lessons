@@ -12,6 +12,7 @@
 
 $Username = $_POST['Username'];
 
+// search up the user and display link to the profile, also show the username and profile picture
 try {
     $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
     // set the PDO error mode to exception      

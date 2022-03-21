@@ -12,6 +12,8 @@
 
 $PostID = $_GET['ID'];
 
+// show who liked your post
+
 try {
     $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
     // set the PDO error mode to exception      

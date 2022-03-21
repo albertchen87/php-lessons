@@ -14,10 +14,12 @@
             // set the PDO error mode to exception      
             $UserID = $_SESSION['UserID'];
 
+            // get all the post you liked
             $sql = "SELECT * FROM `posts` Inner Join `users` on posts.UserID = users.UserID ORDER by `PostID` DESC"; 
             $stmt = $conn->prepare($sql);
             $stmt->execute();
      
+            // print all the liked
             while(($rows = $stmt->fetch(PDO::FETCH_ASSOC)) !== false){
                 $PostID = $rows['PostID'];
                 $sql = "SELECT * FROM  `likes` where `likedUserID` = '$UserID' and `PostID` = '$PostID'";

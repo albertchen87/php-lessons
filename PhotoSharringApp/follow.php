@@ -14,6 +14,7 @@
 </head>
 <body>
     <?php
+    // let people can follow each other
     try {
         $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
         $UserID = $_SESSION['UserID'];
