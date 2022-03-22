@@ -16,7 +16,7 @@
     <?php
 
     $description = addslashes($_POST['description']);
-    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+    require('conn.php');
     // check if the picture is updated, if not, use the old picture or else update the picture
     if ($_FILES['pic']['name'] == ""){
         try {

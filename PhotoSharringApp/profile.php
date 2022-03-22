@@ -18,7 +18,7 @@
     echo $_SESSION['birthday'] . "<br>";
     $UserID = $_SESSION['UserID'];
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+            require('conn.php');
             // set the PDO error mode to exception      
             $sql = 'SELECT * FROM `users` WHERE `UserID` = ?'; 
             $stmt = $conn->prepare($sql);

@@ -19,7 +19,7 @@
     $Password = password_hash($Password, PASSWORD_BCRYPT);
     $birthday = $_POST['birthday'];
     $Description = addslashes($_POST['Description']);
-    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+    require('conn.php');
     $UserID = $_SESSION['UserID'];
 
     // check if picture is updated

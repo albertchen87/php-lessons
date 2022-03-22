@@ -19,7 +19,7 @@ $Password = password_hash($Password, PASSWORD_BCRYPT);
 // CONNECT TO DATABASE
 // create a account and upload it to database
 try {
-    if ($conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp", 'root', '')) {
+    if (require('conn.php')) {
         echo "Connected success<br>";
     } else {
         echo "error connecting";

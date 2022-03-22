@@ -16,7 +16,7 @@
     <?php
     // remove people who followed you
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         $UserID = $_SESSION['UserID'];
         $fUserID = $_GET['ID'];
         $sql = "DELETE FROM `followers` WHERE `followerID` = ? and `followedID` = ?";

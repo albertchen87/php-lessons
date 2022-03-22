@@ -13,7 +13,7 @@
 
     // show post of you and can see comments and who liked the post
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         // set the PDO error mode to exception      
         $sql = 'SELECT * FROM `posts` WHERE `UserID` = ?'; 
         $stmt = $conn->prepare($sql);

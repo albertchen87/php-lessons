@@ -17,7 +17,7 @@
     <?php
     // delete a comment
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         $sql = "DELETE FROM `comment` WHERE `CommentID` = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $CommentID);

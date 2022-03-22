@@ -1,7 +1,7 @@
 <!-- the handel form for unlike button -->
 <?php
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         $UserID = $_SESSION['UserID'];
         $sql = "DELETE FROM `likes` WHERE `likedUserID` = ? and `PostID` = ?";
         $stmt = $conn->prepare($sql);

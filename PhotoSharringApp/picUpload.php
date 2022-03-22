@@ -20,7 +20,7 @@
     $imgContent = addslashes(file_get_contents($image));
 
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+  require('conn.php');
     // set the PDO error mode to exception      
     $sql = "INSERT INTO `Posts` (`UserID`, `pic`, `description`)
                     VALUES ('$UserID', '$imgContent', '$description')";

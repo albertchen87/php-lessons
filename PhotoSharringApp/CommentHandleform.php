@@ -21,7 +21,7 @@
     $imgContent = addslashes(file_get_contents($image));
 // upload the comment into the database
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+  require('conn.php');
     // set the PDO error mode to exception      
     $sql = "INSERT INTO `comment` (`UserID`, `PostID`, `description`, `pic`) VALUES ('$UserID', '$PostID', '$description', '$imgContent')";
     $stmt = $conn->prepare($sql);

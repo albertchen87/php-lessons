@@ -10,7 +10,7 @@
 <body>
     <?php
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+            require('conn.php');
             // set the PDO error mode to exception      
             $UserID = $_SESSION['UserID'];
 

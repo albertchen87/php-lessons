@@ -1,7 +1,7 @@
 <!-- submitting likes into database -->
 <?php
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         $UserID = $_SESSION['UserID'];
         echo $UserID;
         $sql = "INSERT INTO `likes`(`likedUserID`, `PostID`) VALUES ('$UserID','$PostID')";

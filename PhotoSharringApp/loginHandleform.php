@@ -16,7 +16,7 @@
 
     // handel login stuff
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         // set the PDO error mode to exception      
         $sql = 'SELECT * FROM `users` WHERE `Email` = ?'; 
         $stmt = $conn->prepare($sql);

@@ -16,7 +16,7 @@
     <?php
     // let people can follow each other
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+        require('conn.php');
         $UserID = $_SESSION['UserID'];
         $sql = "INSERT INTO `followers`(`followerID`, `followedID`) VALUES ('$UserID','$fUserID')";
         $conn->query($sql);

@@ -17,7 +17,7 @@
 <?php
 // get the information of the original comment
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+    require('conn.php');
     // set the PDO error mode to exception      
     $UserID = $_SESSION['UserID'];
 

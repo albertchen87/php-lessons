@@ -15,7 +15,7 @@ $PostID = $_GET['ID'];
 // show who liked your post
 
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+    require('conn.php');
     // set the PDO error mode to exception      
     $sql = "SELECT * FROM `likes` Inner Join `users` on likes.likedUserID = users.UserID WHERE `PostID` = '$PostID' order by `time` DESC";
     $stmt = $conn->prepare($sql);

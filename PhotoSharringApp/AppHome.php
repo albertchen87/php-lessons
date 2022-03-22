@@ -10,7 +10,7 @@
 <body>
     <?php
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=PhotoSharingApp","root", "");
+            require('conn.php');
    
             $UserID = $_SESSION['UserID'];
             
