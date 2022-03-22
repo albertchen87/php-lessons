@@ -16,7 +16,7 @@
     else {
         echo
         '<ul>
-            <li><a href = "WelcomePage.php">Home</a></li>
+            <li><a href = "index.php">Home</a></li>
             <li><a href = "logIn.php">login</a></li>
             <li><a href = "signUp.php">Sign Up</a></li>
         </ul>';
